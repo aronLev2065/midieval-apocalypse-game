@@ -11,10 +11,10 @@ class Level:
 	def __init__(self, surface, pause_btn):
 		# general setup
 		self.display_surface = surface
-		self.shift = [0, 0]
 		self.WIDTH = surface.get_width()
 		self.HEIGHT = surface.get_height()
 		self.map_width = 0
+		self.shift = [0, 0]
 
 		self.coins = 0
 		self.gained_health = 0
@@ -34,7 +34,7 @@ class Level:
 		self.setup_tiles()
 
 	def setup_tiles(self):
-		# # player
+		# player
 		player_layout = import_csv_layout(csv_graphics['player'])
 		self.map_width = len(player_layout[0]) * tile_size[0]
 		self.player = self.create_single_group(player_layout, 'player')
