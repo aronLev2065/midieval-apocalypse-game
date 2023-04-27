@@ -20,10 +20,10 @@ class Game:
 		self.normal_font = pg.font.Font('assets/ui/ARCADEPI.TTF', 50)
 		self.midium_font = pg.font.Font('assets/ui/ARCADEPI.TTF', 60)
 		self.big_font = pg.font.Font('assets/ui/ARCADEPI.TTF', 70)
-		self.create_buttons()
 		# level
 		self.state = state  # menu/game/pause/gameover/settings
 		self.prev_state = state
+		self.pause_btn = Button('pause', (100, 100))
 		self.level = Level(screen, self.pause_btn)
 		self.coins = 0
 		self.health = 100
@@ -40,22 +40,21 @@ class Game:
 		self.lose_label = TextLabel('YOU LOST!', self.normal_font, (self.WIDTH / 2, self.HEIGHT / 2 - 50))
 		self.win_label = TextLabel('YOU WON!', self.normal_font, (self.WIDTH / 2, self.HEIGHT / 2 - 50))
 		self.score_label = TextLabel('Coins: ', self.normal_font, (self.WIDTH / 2, self.HEIGHT / 2 + 50))
-		# background
-		self.create_background()
-		# audio
-		self.music_on = True
-		self.sounds_on = True
+		# audio & buttons
+		self.music_on = False
+		self.sounds_on = False
 		self.button_click = pg.mixer.Sound(audio_paths['button'])
 		self.button_click.set_volume(0.5)
+		self.create_buttons()
+		# background
+		self.create_background()
 
 	def create_buttons(self):
-		# pause button is created here, because later in __init__ it is passed to the Level
-		self.pause_btn = Button('pause', (100, 100))
-		# other buttons are created in each of these classes separately
+		# all buttons except pause are created in each of these classes separately
 		self.menu_buttons = MenuButtonGroup([self.WIDTH, self.HEIGHT])
 		self.pause_buttons = PauseButtonGroup([self.WIDTH, self.HEIGHT])
 		self.gameover_buttons = GameoverButtonGroup([self.WIDTH, self.HEIGHT])
-		self.settings_buttons = SettingsButtonGroup([self.WIDTH, self.HEIGHT])
+		self.settings_buttons = SettingsButtonGroup([self.WIDTH, self.HEIGHT], self.music_on, self.sounds_on)
 
 	def create_background(self):
 		# create a brick tile spritegroup and fill up the entire screen with them

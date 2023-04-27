@@ -42,15 +42,15 @@ class Button(pg.sprite.Sprite):
 
 
 class AudioButton(Button):
-	def __init__(self, name, size):
+	def __init__(self, name, size, is_audio_on):
 		super().__init__(name, size)
 		name = name.replace('on', 'off')
-		self.image_off = pg.image.load(button_images[name][0]).convert_alpha()
-		self.image_off_hovered = pg.image.load(button_images[name][1]).convert_alpha()
-
-		self.image_off = pg.transform.scale(self.image_off, size)
-		self.image_off_hovered = pg.transform.scale(self.image_off_hovered, size)
+		self.image_off = pg.transform.scale(pg.image.load(button_images[name][0]).convert_alpha(), size)
+		self.image_off_hovered = pg.transform.scale(pg.image.load(button_images[name][1]).convert_alpha(), size)
 		self.audio_on = True
+
+		if not is_audio_on:
+			self.toggle_audio(False)
 
 	def toggle_audio(self, sounds_on):
 		if sounds_on:
@@ -114,12 +114,12 @@ class GameoverButtonGroup(ButtonGroup):
 
 
 class SettingsButtonGroup(ButtonGroup):
-	def __init__(self, display_size):
-		# quit button
+	def __init__(self, display_size, music_on, sounds_on):
+		# go back button
 		self.back_btn = Button('back', (180, 180))
-		# restart button
-		self.sound_btn = AudioButton('sound_on', (180, 180))
-		# settings button
-		self.music_btn = AudioButton('music_on', (180, 180))
+		# music management button
+		self.music_btn = AudioButton('music_on', (180, 180), music_on)
+		# sound management button
+		self.sound_btn = AudioButton('sound_on', (180, 180), sounds_on)
 		self.buttons = [self.back_btn, self.music_btn, self.sound_btn]
 		super().__init__(self.buttons, display_size)
