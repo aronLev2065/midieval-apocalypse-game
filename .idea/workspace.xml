@@ -4,38 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94421ddc-f703-4467-a804-094dee6db251" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/vfx.py" afterDir="false" />
+    <list default="true" id="94421ddc-f703-4467-a804-094dee6db251" name="Changes" comment="version 1.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/audio/button press 1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/audio/death.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/audio/lava.flac" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/brick tileset.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tile assets/tiles/brick tileset.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/door.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tile assets/tiles/door.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/ui/pause button hovered.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/ui/pause button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/button.py" beforeDir="false" afterPath="$PROJECT_DIR$/button.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/enemy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game discription.docx" beforeDir="false" afterPath="$PROJECT_DIR$/game discription.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/game_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/level.py" beforeDir="false" afterPath="$PROJECT_DIR$/level.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_background.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_background.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_blocks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_blocks.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_borders.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_borders.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_coins.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_coins.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_enemies.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_enemies.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_player.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_player.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_torch.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_torch.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/walls tileset.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/levels/walls tileset.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/particles.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/support.py" beforeDir="false" afterPath="$PROJECT_DIR$/support.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/tiles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681024569049</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="version 1.1">
+      <created>1682610830172</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682610830172</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,7 +218,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="version 1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 1.1" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
