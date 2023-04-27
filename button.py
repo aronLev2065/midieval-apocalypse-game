@@ -34,9 +34,6 @@ class Button(pg.sprite.Sprite):
 		self.check_hover(mouse_position)
 		if self.hovered and mouse_down:
 			self.pressed = True
-		# if sounds_on:
-		# 	print('click')
-		# 	self.click.play()
 		else:
 			self.pressed = False
 
