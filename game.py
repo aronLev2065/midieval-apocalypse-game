@@ -41,8 +41,8 @@ class Game:
 		self.win_label = TextLabel('YOU WON!', self.normal_font, (self.WIDTH / 2, self.HEIGHT / 2 - 50))
 		self.score_label = TextLabel('Coins: ', self.normal_font, (self.WIDTH / 2, self.HEIGHT / 2 + 50))
 		# audio & buttons
-		self.music_on = False
-		self.sounds_on = False
+		self.music_on = True
+		self.sounds_on = True
 		self.button_click = pg.mixer.Sound(audio_paths['button'])
 		self.button_click.set_volume(0.5)
 		self.create_buttons()
