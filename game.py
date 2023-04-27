@@ -1,9 +1,12 @@
 import pygame as pg
+
+from button import Button, MenuButtonGroup, PauseButtonGroup, GameoverButtonGroup, SettingsButtonGroup
+from config import tile_size
+from game_data import audio_paths
 from level import Level
-from config import *
-from ui import UI
-from button import Button
 from tiles import StaticTile
+from ui import UI, TextLabel
+
 
 class Game:
 	def __init__(self, screen, state):
@@ -13,70 +16,46 @@ class Game:
 		self.HEIGHT = screen.get_height()
 		# fonts
 		self.author_font = pg.font.Font('assets/ui/ARCADEPI.TTF', 30)
-		self.small_font = pg.font.Font('assets/ui/ARCADEPI.TTF', 50)
+		self.small_font = pg.font.Font('assets/ui/ARCADEPI.TTF', 35)
+		self.normal_font = pg.font.Font('assets/ui/ARCADEPI.TTF', 50)
 		self.midium_font = pg.font.Font('assets/ui/ARCADEPI.TTF', 60)
 		self.big_font = pg.font.Font('assets/ui/ARCADEPI.TTF', 70)
-		self.button_font = pg.font.Font('assets/ui/ARCADEPI.TTF', 35)
 		self.create_buttons()
 		# level
-		self.state = state  # menu/game/pause/gameover
+		self.state = state  # menu/game/pause/gameover/settings
+		self.prev_state = state
 		self.level = Level(screen, self.pause_btn)
 		self.coins = 0
 		self.health = 100
-		self.ui = UI(screen, self.health, self.midium_font, self.button_font)
+		self.ui = UI(screen, self.health, self.midium_font, self.small_font)
 		self.running = True
 		self.open_level_time = 0
+		self.last_button_press = 0
 		# labels
-		self.text_color = (255, 255, 255)
-		self.title = self.create_label('Medieval Apocalypse', self.big_font)
-		self.title_pos = ((self.WIDTH-self.title.get_width())/2, 200)
-		self.author_label = self.create_label('By Aronov Lev', self.author_font)
-		self.author_pos = (self.WIDTH - 330, self.HEIGHT - 50)
-		self.tutorial_label = self.create_label('Tutorial:', self.midium_font)
-		self.tutorial_pos = ((self.WIDTH-self.tutorial_label.get_width())/2, 350)
-		self.pause_label = self.create_label('Game paused', self.small_font)
-		self.pause_pos = ((self.WIDTH-self.pause_label.get_width())/2, 500)
-		self.lose_label = self.create_label('YOU DIED!', self.small_font)
-		self.win_label = self.create_label('YOU WON!', self.small_font)
-		self.gameover_pos = ((self.WIDTH-self.lose_label.get_width())/2, 500)
+		self.title = TextLabel('Medieval Apocalypse', self.big_font, (self.WIDTH / 2, self.HEIGHT / 4))
+		self.author_label = TextLabel('Made By Lev Aronov', self.author_font, (0, 0))
+		self.author_label.rect.bottomright = (self.WIDTH - 50, self.HEIGHT - 50)
+		self.start_label = TextLabel('Enjoy the game!', self.normal_font, (self.WIDTH / 2, self.HEIGHT / 2))
+		self.pause_label = TextLabel('Game paused', self.normal_font, (self.WIDTH / 2, self.HEIGHT / 2))
+		self.lose_label = TextLabel('YOU LOST!', self.normal_font, (self.WIDTH / 2, self.HEIGHT / 2 - 50))
+		self.win_label = TextLabel('YOU WON!', self.normal_font, (self.WIDTH / 2, self.HEIGHT / 2 - 50))
+		self.score_label = TextLabel('Coins: ', self.normal_font, (self.WIDTH / 2, self.HEIGHT / 2 + 50))
 		# background
 		self.create_background()
-		# music
-		self.level_music = pg.mixer.Sound('assets/audio/level bg.wav')
-		self.level_music.set_volume(0.8)
-		self.level_complete_music = pg.mixer.Sound('assets/audio/level complete.wav')
-		self.level_failed_music = pg.mixer.Sound('assets/audio/game over.wav')
-		# sounds
-		self.hit_sound = pg.mixer.Sound('assets/audio/hit.wav')  #
-		self.death_sound = pg.mixer.Sound('assets/audio/death.wav')  #
-		self.burn_sound = pg.mixer.Sound('assets/audio/lava.flac')
-		self.attack_sound = pg.mixer.Sound('assets/audio/player attack 1.wav') #
-		self.land_sound = pg.mixer.Sound('assets/audio/player land.wav')  #
-		self.land_sound.set_volume(0.7)
-		self.coin_collect_sound = pg.mixer.Sound('assets/audio/coin.mp3') #
-		self.coin_collect_sound.set_volume(0.7)
+		# audio
+		self.music_on = True
+		self.sounds_on = True
+		self.button_click = pg.mixer.Sound(audio_paths['button'])
+		self.button_click.set_volume(0.5)
 
 	def create_buttons(self):
-		# create button spritegroups
-		button_image = pg.image.load('assets/ui/button.png').convert_alpha()
-		button_hovered_image = pg.image.load('assets/ui/button_hovered.png').convert_alpha()
-
-		pause_btn_image = pg.image.load('assets/ui/pause button.png').convert_alpha()
-		pause_btn_hovered_image = pg.image.load('assets/ui/pause button hovered.png').convert_alpha()
-
-		self.menu_buttons = pg.sprite.Group()
-		self.pause_buttons = pg.sprite.Group()
-		self.gameover_buttons = pg.sprite.Group()
-		# buttons
-		self.start_btn = Button(button_image, button_hovered_image, (self.WIDTH/3, 700), 'START', self.button_font, self.display_surface)
-		self.quit_btn = Button(button_image, button_hovered_image, (self.WIDTH*2/3, 700), 'QUIT', self.button_font, self.display_surface)
-		self.coninue_btn = Button(button_image, button_hovered_image, (self.WIDTH/3, 700), 'CONTINUE', self.button_font, self.display_surface)
-		self.pause_btn = Button(pause_btn_image, pause_btn_hovered_image, (self.WIDTH-70, 70), '', None, self.display_surface)
-		self.restart_btn = Button(button_image, button_hovered_image, (self.WIDTH/3, 700), 'RESTART', self.button_font, self.display_surface)
-
-		self.menu_buttons.add(self.start_btn, self.quit_btn)
-		self.pause_buttons.add(self.coninue_btn, self.quit_btn)
-		self.gameover_buttons.add(self.restart_btn, self.quit_btn)
+		# pause button is created here, because later in __init__ it is passed to the Level
+		self.pause_btn = Button('pause', (100, 100))
+		# other buttons are created in each of these classes separately
+		self.menu_buttons = MenuButtonGroup([self.WIDTH, self.HEIGHT])
+		self.pause_buttons = PauseButtonGroup([self.WIDTH, self.HEIGHT])
+		self.gameover_buttons = GameoverButtonGroup([self.WIDTH, self.HEIGHT])
+		self.settings_buttons = SettingsButtonGroup([self.WIDTH, self.HEIGHT])
 
 	def create_background(self):
 		# create a brick tile spritegroup and fill up the entire screen with them
@@ -92,10 +71,6 @@ class Game:
 				sprite = StaticTile((x, y), tile_size, tile_surface)
 				self.bg_tiles_sprites.add(sprite)
 
-	def create_label(self, text, font):
-		label = font.render(text, True, self.text_color)
-		return label
-
 	def display_bg(self):
 		# draw background with a bit of shading
 		self.bg_tiles_sprites.draw(self.background)
@@ -106,126 +81,186 @@ class Game:
 		surface.set_alpha(50)
 		self.display_surface.blit(surface, (0, 0))
 		# add title label
-		self.display_surface.blit(self.title, self.title_pos)
-		self.display_surface.blit(self.author_label, self.author_pos)
+		self.display_surface.blit(self.title.image, self.title.rect)
+		self.display_surface.blit(self.author_label.image, self.author_label.rect)
 
 	def play(self, dt, keys, mouse_down, mouse_pos):
 		# main game mode
 		mouse_down = mouse_down and pg.time.get_ticks() - self.open_level_time > 50  # mouse down only 0.05s after opening the level
-		self.level.run(dt, self.health, keys, mouse_down, mouse_pos)
-		self.manage_audio()
+		self.level.run(dt, self.health, keys, mouse_down, mouse_pos, self.sounds_on)
 
+		player = self.level.player.sprite
 		if self.level.paused:
 			self.state = 'pause'
-			self.level_music.stop()
+			self.level.level_music.stop()
+			self.level.torch_sound.stop()
 			return
 
 		if self.level.gained_health != 0:
 			# when some health was gained
 			collide_pos = self.level.player.sprite.collisionbox.center
 			self.ui.create_indicator(collide_pos, self.level.gained_health)  # shows an indicator when health is gained
-			self.level.gained_health = 0
+
 		# update coin and health information
 		self.coins = self.level.coins
-		self.health = self.ui.current_health
+		self.health += self.level.gained_health
+		# limit health within [0; 100]
+		if self.health < 0:
+			self.health = 0
+		if self.health > 100:
+			self.health = 100
+
+		self.level.gained_health = 0
 		self.ui.draw(self.coins, self.health, dt)
 
 		if self.level.gameover:
-			self.level_music.stop()
-			if self.level.win_time:
-				self.level_complete_music.play()
-			else:
-				self.level_failed_music.play()
+			self.level.level_music.stop()
+			self.level.torch_sound.stop()
+			if self.music_on:
+				if self.level.completed:
+					self.level.level_complete_music.play()
+				elif self.level.failed:
+					self.level.level_failed_music.play()
 			self.state = 'gameover'
-
-	def manage_audio(self):
-		level = self.level
-		player = level.player.sprite
-
-		if player.just_landed:
-			self.land_sound.play()
-
-		if level.gained_health < 0:  # if lost health
-			if self.health + level.gained_health > 0: # still alive
-				self.hit_sound.play()
-			elif player.state != 'death': # already dead; frame before the one when it is detected
-				self.death_sound.play()
-
-		if player.state == 'attack' and player.frame_index == 0:  # first frame of attack
-			self.attack_sound.play()
-
-		if self.coins != level.coins:  # unequal number of coins means more coins
-			self.coin_collect_sound.play()
-
-		for enemy in level.enemy_sprites.sprites():
-			if enemy.state == 'take hit' and pg.time.get_ticks() - enemy.hurt_time < 20:  # check every enemy for being hurt
-				if enemy.health > 0:  # still alive
-					self.hit_sound.play()
-				else:
-					self.death_sound.play()  # already dead
-
-		if player.burnt and player.state != 'death':  # already burnt but not yet dead lol
-			self.burn_sound.play()
+			self.score_label.update_text(self.score_label.text + str(self.coins))
 
 	def menu(self, mouse_down, mouse_pos):
 		self.display_bg()
 
-		self.menu_buttons.update(mouse_down, mouse_pos)
+		self.display_surface.blit(self.start_label.image, self.start_label.rect)
+
+		self.menu_buttons.update(mouse_down, mouse_pos, self.sounds_on)
 		self.menu_buttons.draw(self.display_surface)
 
-		if self.start_btn.pressed:
-			self.state = 'game'
-			self.level_music.play(-1)
-			self.open_level_time = pg.time.get_ticks()
-		if self.quit_btn.pressed:
-			self.running = False
+		if pg.time.get_ticks() - self.last_button_press < 100:
+			return
+
+		if self.menu_buttons.start_btn.pressed:
+			self.open_level()
+		if self.menu_buttons.settings_btn.pressed:
+			self.goto_settings()
+		if self.menu_buttons.quit_btn.pressed:
+			self.quit()
 
 	def pause(self, mouse_down, mouse_pos):
 		self.display_bg()
 
-		self.display_surface.blit(self.pause_label, self.pause_pos)
+		self.display_surface.blit(self.pause_label.image, self.pause_label.rect)
 
-		self.pause_buttons.update(mouse_down, mouse_pos)
+		self.pause_buttons.update(mouse_down, mouse_pos, self.sounds_on)
 		self.pause_buttons.draw(self.display_surface)
 
-		if self.coninue_btn.pressed:
+		if pg.time.get_ticks() - self.last_button_press < 100:
+			return
+
+		if self.pause_buttons.start_btn.pressed:
 			self.level.paused = False
-			self.state = 'game'
-			self.open_level_time = pg.time.get_ticks()
-			self.level_music.play(-1)
-		if self.quit_btn.pressed:
-			self.running = False
+			self.open_level()
+		if self.pause_buttons.restart_btn.pressed:
+			self.restart_level()
+		if self.pause_buttons.settings_btn.pressed:
+			self.goto_settings()
+		if self.pause_buttons.quit_btn.pressed:
+			self.quit()
+
+	def settings(self, mouse_down, mouse_pos):
+		self.display_bg()
+
+		self.settings_buttons.update(mouse_down, mouse_pos, self.sounds_on)
+		self.settings_buttons.draw(self.display_surface)
+
+		if pg.time.get_ticks() - self.last_button_press < 100:
+			return
+
+		if self.settings_buttons.sound_btn.pressed:
+			self.settings_buttons.sound_btn.toggle_audio(self.sounds_on)
+			self.sounds_on = self.settings_buttons.sound_btn.audio_on
+
+		if self.settings_buttons.music_btn.pressed:
+			self.settings_buttons.music_btn.toggle_audio(self.sounds_on)
+			self.music_on = self.settings_buttons.music_btn.audio_on
+
+		if self.settings_buttons.back_btn.pressed:
+			self.state = self.prev_state
+			self.last_button_press = pg.time.get_ticks()
+			if self.sounds_on:
+				self.button_click.play()
 
 	def gameover(self, mouse_down, mouse_pos):
 		self.display_bg()
 
-		if self.health <= 0 or self.level.player.sprite.burnt: # if character is dead, player loses
-			self.display_surface.blit(self.lose_label, self.gameover_pos)
-		else:
-			self.display_surface.blit(self.win_label, self.gameover_pos)  # otherwise player wins
+		if self.level.failed:  # if character is dead, player loses
+			self.display_surface.blit(self.lose_label.image, self.lose_label.rect)
+		elif self.level.completed:
+			self.display_surface.blit(self.win_label.image, self.win_label.rect)  # otherwise player wins
 
-		self.gameover_buttons.update(mouse_down, mouse_pos)
+		self.display_surface.blit(self.score_label.image, self.score_label.rect)
+
+		self.gameover_buttons.update(mouse_down, mouse_pos, self.sounds_on)
 		self.gameover_buttons.draw(self.display_surface)
 
-		if self.restart_btn.pressed:
-			self.level_complete_music.stop()
-			self.level_failed_music.stop()
+		if pg.time.get_ticks() - self.last_button_press < 100:
+			return
 
-			self.state = 'game'
-			self.level = Level(self.display_surface, self.pause_btn)
-			self.coins = 0
-			self.health = 100
-			self.ui = UI(self.display_surface, self.health, self.midium_font, self.button_font)
-			self.level_music.play(-1)
+		if self.gameover_buttons.restart_btn.pressed:
+			self.restart_level()
+		if self.gameover_buttons.settings_btn.pressed:
+			self.goto_settings()
+		if self.gameover_buttons.quit_btn.pressed:
+			self.quit()
 
-		if self.quit_btn.pressed:
-			self.running = False
+	def goto_settings(self):
+		if self.sounds_on:
+			self.button_click.play()
+		self.last_button_press = pg.time.get_ticks()
+
+		self.prev_state = self.state
+		self.state = 'settings'
+
+	def restart_level(self):
+		if self.sounds_on:
+			self.button_click.play()
+		self.last_button_press = pg.time.get_ticks()
+
+		self.level.level_complete_music.stop()
+		self.level.level_failed_music.stop()
+		self.level.torch_sound.stop()
+
+		self.score_label.update_text('Coins: ')  # reset the score label
+		self.prev_state = self.state
+		self.state = 'game'
+		self.level = Level(self.display_surface, self.pause_btn)  # recreate level
+		self.coins = 0  # reset coins and health
+		self.health = 100
+
+		if self.sounds_on:
+			self.level.torch_sound.play(-1)
+		if self.music_on:
+			self.level.level_music.play(-1)
+
+	def open_level(self):
+		if self.sounds_on:
+			self.button_click.play()
+		self.last_button_press = pg.time.get_ticks()
+
+		self.prev_state = self.state
+		self.state = 'game'
+		self.open_level_time = pg.time.get_ticks()
+		if self.sounds_on:
+			self.level.torch_sound.play(-1)
+		if self.music_on:
+			self.level.level_music.play(-1)
+
+	def quit(self):
+		self.running = False
 
 	def run(self, dt, keys, mouse_down, mouse_pos):
 		if self.state == 'menu':
 			self.menu(mouse_down, mouse_pos)
 		if self.state == 'game':
 			self.play(dt, keys, mouse_down, mouse_pos)
+		if self.state == 'settings':
+			self.settings(mouse_down, mouse_pos)
 		if self.state == 'pause':
 			self.pause(mouse_down, mouse_pos)
 		if self.state == 'gameover':

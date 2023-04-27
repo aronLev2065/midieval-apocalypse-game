@@ -1,4 +1,4 @@
-from game_data import folder_animations
+from game_data import folder_animations, audio_paths
 from random import randint, choice
 import pygame as pg
 from support import import_folder
@@ -42,6 +42,9 @@ class Enemy(pg.sprite.Sprite):
 		self.invincibility_duration = 1000
 		self.hurt_time = 0
 		self.is_killed = False
+
+		self.death_sound = pg.mixer.Sound(audio_paths['enemy']['death'])
+		self.hit_sound = pg.mixer.Sound(audio_paths['enemy']['hit'])
 
 	def get_animations(self, set):
 		surface_list = {}
@@ -88,13 +91,15 @@ class Enemy(pg.sprite.Sprite):
 	def move(self, dt):
 		self.pos.x += self.direction_x * self.speed_x * dt
 
-	def get_damage(self, damage):
+	def get_damage(self, damage, sounds_on):
 		self.state = 'take hit'
 		self.invincible = True
 		self.direction_x = 0
 		self.frame_index = 0
 		self.health -= damage
 		self.hurt_time = pg.time.get_ticks()
+		if sounds_on:
+			self.hit_sound.play()
 
 	def invincibility_timer(self):
 		if self.invincible:
@@ -112,8 +117,10 @@ class Enemy(pg.sprite.Sprite):
 			self.attackbox.left = self.innerbox.centerx - 5
 		self.image.set_colorkey((255, 255, 255))
 
-	def attack(self):
+	def attack(self, sounds_on):
 		if self.state == 'attack': return
+		if sounds_on:
+			self.attack_sound.play()
 		self.state = 'attack'
 		self.direction_x = 0
 		self.frame_index = 0
@@ -143,6 +150,9 @@ class Eye(Enemy):
 		self.direction_y = 0
 		self.fallen = False
 
+		attack_sound_path = audio_paths['enemy']['attack']['eye']
+		self.attack_sound = pg.mixer.Sound(attack_sound_path)
+
 	def apply_gravity(self, dt):
 		if self.fallen:
 			self.direction_x = 0
@@ -166,7 +176,6 @@ class Eye(Enemy):
 		self.image.set_colorkey((255, 255, 255))
 
 
-
 class Goblin(Enemy):
 	def __init__(self, pos):
 		self.size = (90, 92)
@@ -175,6 +184,9 @@ class Goblin(Enemy):
 		self.health = 30
 		self.attackbox_size = (75, 70)
 		self.attackbox = pg.Rect(0, 0, *self.attackbox_size)
+
+		attack_sound_path = audio_paths['enemy']['attack']['goblin']
+		self.attack_sound = pg.mixer.Sound(attack_sound_path)
 
 
 class Mushroom(Enemy):
@@ -186,6 +198,9 @@ class Mushroom(Enemy):
 		self.attackbox_size = (75, 70)
 		self.attackbox = pg.Rect(0, 0, *self.attackbox_size)
 
+		attack_sound_path = audio_paths['enemy']['attack']['eye']
+		self.attack_sound = pg.mixer.Sound(attack_sound_path)
+
 
 class Skeleton(Enemy):
 	def __init__(self, pos):
@@ -195,3 +210,6 @@ class Skeleton(Enemy):
 		self.health = 60
 		self.attackbox_size = (100, 110)
 		self.attackbox = pg.Rect(0, 0, *self.attackbox_size)
+
+		attack_sound_path = audio_paths['enemy']['attack']['skeleton']
+		self.attack_sound = pg.mixer.Sound(attack_sound_path)

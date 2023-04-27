@@ -1,15 +1,17 @@
 from sys import exit
 import pygame as pg
 from time import time
-from config import *
+from config import FPS
 from game import Game
 
 pg.init()
 screen = pg.display.set_mode((0, 0), pg.FULLSCREEN)
-pg.display.set_caption('Medieval Apocolypse')
+pg.display.set_caption('Medieval Apocalypse')
 screen_width = screen.get_width()
 screen_height = screen.get_height()
+
 clock = pg.time.Clock()
+
 game = Game(screen, 'menu')
 
 last_time = time()
@@ -30,7 +32,6 @@ while True:
 	dt = time() - last_time
 	last_time = time()
 
-	screen.fill('black')
 	game.run(dt, keys, mouse_down, mouse_pos)
 
 	if not game.running:

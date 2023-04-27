@@ -5,12 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94421ddc-f703-4467-a804-094dee6db251" name="Changes" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/vfx.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/button press 1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/death.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/lava.flac" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/brick tileset.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tile assets/tiles/brick tileset.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/door.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tile assets/tiles/door.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/pause button hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/pause button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/button.py" beforeDir="false" afterPath="$PROJECT_DIR$/button.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/enemy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game discription.docx" beforeDir="false" afterPath="$PROJECT_DIR$/game discription.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/game_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/level.py" beforeDir="false" afterPath="$PROJECT_DIR$/level.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_background.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_background.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_blocks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_blocks.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_borders.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_borders.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_coins.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_coins.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_enemies.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_enemies.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_player.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_player.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_torch.csv" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level 1/level_torch.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/levels/level.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/walls tileset.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/levels/walls tileset.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/particles.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/support.py" beforeDir="false" afterPath="$PROJECT_DIR$/support.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/tiles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -28,7 +61,10 @@
     <setting file="file://$PROJECT_DIR$/test.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/tiles.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/ui.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/vfx.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../pygame trainer/main.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/../../py_lesson/main.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../../voice assistant/main.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="2NV4LLw0SZLgyEVyUraDTKW0Hb2" />
   <component name="ProjectViewState">
@@ -39,11 +75,53 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/user/Documents/programming/python/GAMES/pygame trainer/example.py",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font"
+    "last_opened_file_path": "C:/Users/user/Documents/programming/python/GAMES/medieval apocalypse",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RunManager" selected="Python.main mid apocalypse">
+    <configuration name="button" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="midieval apocalypse" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/button.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="level" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="midieval apocalypse" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/level.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main mid apocalypse" type="PythonConfigurationType" factoryName="Python">
       <module name="midieval apocalypse" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -88,10 +166,41 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="player" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="midieval apocalypse" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/player.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main mid apocalypse" />
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.level" />
+      <item itemvalue="Python.player" />
+      <item itemvalue="Python.button" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.level" />
+        <item itemvalue="Python.player" />
+        <item itemvalue="Python.button" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -109,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681024506129</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first commit">
+      <created>1681024569049</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681024569049</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -126,5 +242,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

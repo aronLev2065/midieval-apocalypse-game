@@ -1,17 +1,19 @@
 import pygame as pg
+
+from config import player_full_size, player_frame_size, player_real_size
+from game_data import audio_paths
 from sprite_sheet import SpriteSheet
-from config import player_full_size, tile_size, player_frame_size, player_real_size, FPS, TARGET_FPS
-from support import import_folder
+
 
 class Player(pg.sprite.Sprite):
 	def __init__(self, pos, size, create_particles):
 		super().__init__()
-		self.import_character_assets()
+		self.animation_set = self.import_character_assets()
 		self.image = pg.Surface(size)
 		self.rect = self.image.get_rect(midbottom=pos)
 
 		self.collisionbox = pg.Rect(0, 0, *player_real_size)  # used for collisions
-		self.collisionbox.topleft = pos
+		self.collisionbox.midtop = pos
 		self.pos = pg.math.Vector2(self.collisionbox.midbottom)
 		self.rect.midbottom = self.collisionbox.midbottom
 
@@ -31,8 +33,8 @@ class Player(pg.sprite.Sprite):
 		# movement
 		self.direction = pg.math.Vector2(0, 0)
 		# x
-		self.base_speed_x = 300
-		self.speed_x = 0
+		self.base_speed_x = 320
+		self.speed_x = self.base_speed_x
 		# y
 		self.base_gravity = 2400
 		self.base_jump_speed = -1020
@@ -44,11 +46,10 @@ class Player(pg.sprite.Sprite):
 		self.is_jumping = False
 		self.action = ''  # attack/crouch/roll/hit
 		self.on_ground = False
+		self.is_won = False
 		self.is_dead = False
 		self.death_time = 0
 		self.burnt = False
-
-		self.just_landed = False
 
 		self.invincible = False
 		self.invincibility_duration = 420
@@ -56,22 +57,26 @@ class Player(pg.sprite.Sprite):
 
 		self.attack_pressed = False
 		# sounds
-		# self.attack_sound = pg.mixer.Sound('assets/audio/player attack 1.wav')
-		# self.land_sound = pg.mixer.Sound('assets/audio/player land.wav')
-		# self.land_sound.set_volume(0.7)
-		# self.burn_sound = pg.mixer.Sound('assets/audio/lava.flac')
+		self.death_sound = pg.mixer.Sound(audio_paths['player']['death'])
+		self.land_sound = pg.mixer.Sound(audio_paths['player']['land'])
+		self.land_sound.set_volume(0.7)
+		self.attack_sound = pg.mixer.Sound(audio_paths['player']['attack'])
+		self.burn_sound = pg.mixer.Sound(audio_paths['player']['burn'])
+		self.hit_sound = pg.mixer.Sound(audio_paths['player']['hit'])
 
 	def import_character_assets(self):
 		base_path = 'assets/character/'
-		self.animation_set = {'idle': [], 'run': [], 'jump': [],
-		                      'jump_to_fall': [], 'fall': [], 'roll': [],
-		                      'attack': [], 'crouch': [], 'death': [], 'hit': []}
+		animation_set = {'idle': [], 'run': [], 'jump': [],
+		                 'jump_to_fall': [], 'fall': [], 'roll': [],
+		                 'attack': [], 'crouch': [], 'death': [], 'hit': []}
 
 		# for each set take the image with identical name and get animation frames from it
-		for animation in self.animation_set.keys():
+		for animation in animation_set.keys():
 			full_path = base_path + animation + '.png'
 			sprite_sheet = SpriteSheet(full_path, *player_frame_size, player_full_size, (0, 0, 0))
-			self.animation_set[animation] = sprite_sheet.import_animation_list()
+			animation_set[animation] = sprite_sheet.import_animation_list()
+
+		return animation_set
 
 	def animate(self, dt):
 		animation = self.animation_set[self.state]
@@ -103,10 +108,11 @@ class Player(pg.sprite.Sprite):
 		self.direction.y += self.gravity * dt / 2
 		self.collisionbox.bottom = self.pos.y
 
-	def attack(self):
+	def attack(self, sounds_on):
 		self.action = 'attack'
 		self.frame_index = 0
-		# self.attack_sound.play()
+		if sounds_on:
+			self.attack_sound.play()
 
 	def jump(self):
 		self.direction.y = self.jump_speed
@@ -114,21 +120,24 @@ class Player(pg.sprite.Sprite):
 		self.on_ground = False
 		self.create_particles('jump', self.rect.midbottom)
 
-	def land(self):
+	def land(self, sounds_on):
+		if sounds_on:
+			self.land_sound.play()
 		if self.direction.y > 800 and self.direction.x == 0:
 			self.action = 'crouch'
 		if self.is_too_high:
-			self.just_landed = True
 			if self.direction.x != 0:
 				self.action = 'roll'
 		# if moving when landed - roll, otherwise crouch
 		self.on_ground = True
 
-	def get_damage(self):
+	def get_damage(self, sounds_on):
 		if not self.invincible:
 			self.action = 'hit'
 			self.invincible = True
 			self.hurt_time = pg.time.get_ticks()
+			if sounds_on:
+				self.hit_sound.play()
 
 	def invincibility_timer(self):
 		if self.invincible and not self.state == 'death':
@@ -136,13 +145,16 @@ class Player(pg.sprite.Sprite):
 			if current_time - self.hurt_time >= self.invincibility_duration:
 				self.invincible = False
 
-	def burn(self):
+	def burn(self, sounds_on):
+		if sounds_on and not self.burnt:
+			self.burn_sound.play()
+			self.death_sound.play()
 		self.burnt = True
-		self.die()
+		self.die(False)
 
-	def die(self):
-		if self.action != 'death':
-			self.facing_left = not self.facing_left
+	def die(self, sounds_on):
+		if sounds_on:
+			self.death_sound.play()
 		self.action = 'death'
 		self.invincible = True
 
@@ -177,12 +189,12 @@ class Player(pg.sprite.Sprite):
 		if self.state != prev_state:
 			self.frame_index = 0
 
-	def get_input(self, mouse_down, keys):
+	def get_input(self, mouse_down, keys, sounds_on):
 		self.direction.x = 0
 		if self.state == 'death':
 			return
-		# control the keyboard
 
+		# control the keyboard
 		if keys[pg.K_a] or keys[pg.K_LEFT]:
 			self.direction.x -= 1
 
@@ -203,7 +215,7 @@ class Player(pg.sprite.Sprite):
 
 		if keys[pg.K_k] or mouse_down:
 			if self.action != 'attack' and not self.attack_pressed:
-				self.attack()
+				self.attack(sounds_on)
 				self.attack_pressed = True
 		else:
 			self.attack_pressed = False
@@ -223,11 +235,13 @@ class Player(pg.sprite.Sprite):
 
 		self.pos = pg.math.Vector2(self.collisionbox.midbottom)
 
-	def update(self, dt, mouse_down, keys):
+	def update(self, dt, shift, mouse_down, keys, sounds_on):
 		if self.death_time:
 			return
-		self.get_input(mouse_down, keys)
+
+		self.get_input(mouse_down, keys, sounds_on)
 		self.get_state()
 		self.animate(dt)
 		self.pos = pg.math.Vector2(self.collisionbox.midbottom)
+		self.pos.x += shift[0]
 		self.invincibility_timer()

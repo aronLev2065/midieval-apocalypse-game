@@ -1,26 +1,49 @@
 import pygame as pg
-from game_data import spritesheet_animations
+from game_data import spritesheet_animations, png_graphics
 from sprite_sheet import SpriteSheet
 from pygame.math import Vector2
+from math import sin
+
+
+class TextLabel(pg.sprite.Sprite):
+	def __init__(self, text, font, pos):
+		super().__init__()
+		self.text_color = (255, 255, 255)
+		self.text = text
+		self.font = font
+		self.label = font.render(text, True, self.text_color)
+		self.image = pg.Surface(self.label.get_size(), flags=pg.SRCALPHA)
+		self.rect = self.image.get_rect(center=pos)
+		self.pos = Vector2(pos)
+		self.image.blit(self.label, (0, 0))
+
+	def update_text(self, text):
+		self.text_color = (255, 255, 255)
+		self.text = text
+		self.label = self.font.render(text, True, self.text_color)
+		self.image = pg.Surface(self.label.get_size(), flags=pg.SRCALPHA)
+		self.rect = self.image.get_rect(center=self.pos)
+		self.image.blit(self.label, (0, 0))
+
 
 class Indicator:
 	def __init__(self, font, pos, text, type):
 		if type == 'up':
-			color = (66, 206, 41)  # greenish
+			color = '#42ce29'  # greenish
 		elif type == 'down':
-			color = (173, 21, 10)  # redish
+			color = '#ad150a'  # redish
 		self.text_surface = font.render(text, True, color)
 		self.alpha = 255
 		self.pos = Vector2(pos)
-		self.done = False
+		self.alive = True
 
 	def animate_indicator(self, dt):
-		if not self.done:
+		if self.alive:
 			self.text_surface.set_alpha(self.alpha)
 			self.alpha -= 5
 			self.pos.y -= 180 * dt
 			if self.alpha < 50:
-				self.done = True
+				self.alive = False
 
 
 class UI:
@@ -30,12 +53,12 @@ class UI:
 		self.font_small = button_font
 
 		# coin
-		self.coin_icon = pg.image.load('assets/tile assets/tiles/coin.png').convert_alpha()
+		self.coin_icon = pg.image.load(png_graphics['coins']).convert_alpha()
 		self.coin_icon = pg.transform.scale(self.coin_icon, (120, 120))
 		self.coin_pos = (30, -5)
 
 		# health bar
-		self.health_bar = pg.image.load('assets/ui/health_bar.png').convert_alpha()
+		self.health_bar = pg.image.load(png_graphics['healthbar']).convert_alpha()
 		self.health_bar = pg.transform.scale(self.health_bar, (228, 89))
 		self.bar_pos = (65, 90)
 		self.bar_max_width = 180
@@ -50,24 +73,16 @@ class UI:
 		if gained_health < 0:
 			indicator = Indicator(self.font_small, pos, f'{gained_health}', 'down')
 		self.indicators.append(indicator)
-		self.change_health(gained_health)
-
-	def change_health(self, health):
-		self.current_health += health
-		if self.current_health < 0:
-			self.current_health = 0
-		if self.current_health > 100:
-			self.current_health = 100
 
 	def display_health(self, health):
-		self.display_surface.blit(self.health_bar, self.bar_pos)
-		current_health_ratio = health / 100
+		self.display_surface.blit(self.health_bar, self.bar_pos)  # display the health bar
+		health_ratio = health / 100
 
-		if current_health_ratio > 1:
-			current_health_ratio = 1
+		if health_ratio > 1:
+			health_ratio = 1
 
-		current_bar_width = self.bar_max_width * current_health_ratio
-		health_bar_rect = pg.Rect((105, 130), (current_bar_width, self.bar_height))
+		current_bar_width = self.bar_max_width * health_ratio
+		health_bar_rect = pg.Rect((105, 130), (current_bar_width, self.bar_height))  # fill up the health bar
 		pg.draw.rect(self.display_surface, (250, 10, 15), health_bar_rect, 0)
 
 	def display_coins(self, coins):
@@ -81,7 +96,7 @@ class UI:
 		for indicator in self.indicators:
 			self.display_surface.blit(indicator.text_surface, indicator.pos)
 			indicator.animate_indicator(dt)
-			if indicator.done:
+			if not indicator.alive:
 				self.indicators.remove(indicator)
 
 		self.display_coins(coins)

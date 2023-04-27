@@ -2,9 +2,10 @@ import pygame as pg
 from config import tile_size, vertical_tile_number
 from sprite_sheet import SpriteSheet
 from support import import_cut_graphics, import_folder
-from game_data import png_graphics, spritesheet_animations
+from game_data import png_graphics, spritesheet_animations, audio_paths
 
 
+# region parent classes
 class Tile(pg.sprite.Sprite):
 	def __init__(self, pos, size):
 		super().__init__()
@@ -55,17 +56,47 @@ class AnimatedTile(Tile):
 		self.rect.topleft = self.pos
 
 
-class Lava(AnimatedTile):
-	def __init__(self, pos, width, height, scale, path):
-		self.bg_color = 'white'
-		super().__init__(pos, width, height, scale, path, self.bg_color)
-		self.animation_speed = 6
-
+# endregion
 
 class Border(Tile):
 	def __init__(self, pos, size):
 		super().__init__(pos, size)
 		self.image.set_colorkey('black')
+
+
+class BackgroundTile(StaticTile):
+	def __init__(self, pos, size, surface):
+		super().__init__(pos, size, surface)
+		self.parallax_index = 0.7
+
+	def update(self, shift):
+		# scroll the tile
+		self.pos.x += shift[0] * self.parallax_index
+		self.pos.y += shift[1] * self.parallax_index
+		self.rect.topleft = self.pos
+
+
+class Door(StaticTile):
+	def __init__(self, pos, size, surface):
+		super().__init__(pos, size, surface)
+		self.image = surface
+		self.image.set_colorkey('white')
+		self.type = 'door'
+
+
+class Lava(AnimatedTile):
+	def __init__(self, pos, width, height, scale, path):
+		self.bg_color = 'white'
+		super().__init__(pos, width, height, scale, path, self.bg_color)
+		self.animation_speed = 6
+		self.parallax_index = 0.9
+
+	def update(self, shift, dt):
+		self.animate(dt)
+		self.image.set_colorkey(self.bg_color)
+		self.pos.x += shift[0] * self.parallax_index
+		self.pos.y += shift[1] * self.parallax_index
+		self.rect.topleft = self.pos
 
 
 class Fire(AnimatedTile):
@@ -85,6 +116,7 @@ class Coin(AnimatedTile):
 		self.collected = False
 		self.hitbox = pg.Rect(0, 0, 34, 34)
 		self.bg_color = 'white'
+		self.collect_sound = pg.mixer.Sound(audio_paths['coin']['collect'])
 		super().__init__(pos, width, height, scale, path, self.bg_color)
 
 	def animate(self, dt):
@@ -96,13 +128,15 @@ class Coin(AnimatedTile):
 
 		self.image = self.frames[int(self.frame_index)]
 
-	def collect(self):
+	def collect(self, sounds_on):
 		self.path = spritesheet_animations['collect']
 		self.frames = SpriteSheet(self.path, *self.size, self.scale, self.bg_color).import_animation_list()
 		self.collected = True
 		self.frame_index = 0
 		self.animation_speed = 9
 		self.image = self.frames[self.frame_index]
+		if sounds_on:
+			self.collect_sound.play()
 
 	def update(self, shift, dt):
 		self.animate(dt)
@@ -118,12 +152,12 @@ class Torch(AnimatedTile):
 		self.path = path
 		self.size = (width, height)
 		self.bg_color = 'white'
+		self.parallax_index = 0.7
 		super().__init__(pos, width, height, scale, path, self.bg_color)
 
-
-class Door(StaticTile):
-	def __init__(self, pos, size, surface):
-		super().__init__(pos, size, surface)
-		self.image = surface
-		self.image.set_colorkey('white')
-		self.type = 'door'
+	def update(self, shift, dt):
+		# scroll the tile
+		self.animate(dt)
+		self.pos.x += shift[0] * self.parallax_index
+		self.pos.y += shift[1] * self.parallax_index
+		self.rect.topleft = self.pos

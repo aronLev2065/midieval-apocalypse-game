@@ -30,7 +30,6 @@ def import_cut_graphics(path):
 
 	return graphics
 
-
 def import_folder(path):
 	# takes all images from the folder[path] and puts them on pg.surface; returns a list of these surfaces
 	surfaces = []
@@ -42,3 +41,15 @@ def import_folder(path):
 			surfaces.append(image)
 
 	return surfaces
+
+# def import_button_folder(path):
+# 	buttons = {}
+# 	for _, __, img_files in walk(path):
+# 		for img_file in img_files:
+# 			full_path = path + img_file
+# 			image = pg.image.load(full_path).convert_alpha()
+# 			img_file = img_file.replace('.png', '')
+# 			img_file = img_file.replace(' button', '')
+# 			buttons[img_file] = image
+# 			print(img_file, buttons[img_file])
+# 	return buttons
