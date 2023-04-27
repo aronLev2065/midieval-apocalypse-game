@@ -104,7 +104,6 @@ class Splash:
 class Transition:
 	def __init__(self, pos, display_surface):
 		self.pos = pg.Vector2(pos)
-		# self.frames = frames
 		self.display_surface = display_surface
 
 		self.radius = abs(display_surface.get_width() - self.pos.x)
