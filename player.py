@@ -8,16 +8,18 @@ from sprite_sheet import SpriteSheet
 class Player(pg.sprite.Sprite):
 	def __init__(self, pos, size, create_particles):
 		super().__init__()
+		# animation, image and rects
 		self.animation_set = self.import_character_assets()
 		self.image = pg.Surface(size)
-		self.rect = self.image.get_rect(midbottom=pos)
+		self.rect = self.image.get_rect(midbottom=pos)  # for sprite
 
-		self.collisionbox = pg.Rect(0, 0, *player_real_size)  # used for collisions
+		self.collisionbox = pg.Rect(0, 0, *player_real_size)  # for collisions
 		self.collisionbox.midtop = pos
 		self.pos = pg.math.Vector2(self.collisionbox.midbottom)
 		self.rect.midbottom = self.collisionbox.midbottom
+		self.old_rect = self.collisionbox.copy()
 
-		self.attackbox = pg.Rect(0, 0, 110, 80)
+		self.attackbox = pg.Rect(0, 0, 110, 80)  # for attack, placed in front of the player
 
 		# animation
 		self.frame_index = 0

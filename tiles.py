@@ -10,12 +10,14 @@ class Tile(pg.sprite.Sprite):
 	def __init__(self, pos, size):
 		super().__init__()
 		self.image = pg.Surface(size)
-		self.rect = self.image.get_rect(topleft=pos)
 		self.image.set_colorkey('white')
+		self.rect = self.image.get_rect(topleft=pos)
+		self.old_rect = self.rect.copy()
 		self.pos = pg.math.Vector2(self.rect.topleft)
 
 	def update(self, shift):
 		# scroll the tile
+		self.old_rect = self.rect.copy()
 		self.pos.x += shift[0]
 		self.pos.y += shift[1]
 		self.rect.topleft = self.pos

@@ -1,11 +1,13 @@
 from game_data import folder_animations, audio_paths
-from random import randint, choice
+from random import randint
 import pygame as pg
 from support import import_folder
+
 
 class Enemy(pg.sprite.Sprite):
 	def __init__(self, name, pos, size):
 		super().__init__()
+		# animation info
 		self.animation_set = self.get_animations(folder_animations[name])
 		self.frame_index = 0
 		self.animation_speed = 12
@@ -14,18 +16,19 @@ class Enemy(pg.sprite.Sprite):
 		self.death_animation_speed = 4
 		self.state = 'run'
 		self.name = name
-
+		# geometry
 		self.scale = (350, 350)
 		self.size = size
 		self.pos = pos
-
+		# rects
 		self.image = self.animation_set[self.state][self.frame_index].convert_alpha()
 		self.rect = self.image.get_rect(center=pos)
 		self.innerbox = pg.Rect(*pos, *size)
 		self.innerbox.center = pos
 		self.innerbox.y += 28
+		self.old_rect = self.innerbox.copy()
 		self.pos = pg.math.Vector2(self.innerbox.center)
-
+		# movement
 		self.speed = randint(200, 300)
 		self.speed_x = self.speed
 		self.facing_left = False
@@ -34,15 +37,14 @@ class Enemy(pg.sprite.Sprite):
 			self.direction_x = randint(-1, 1)
 			if self.direction_x != 0:
 				break
-
+		# booleans
 		self.facing_left = True if self.direction_x == -1 else False
-		self.colliding = False
 
 		self.invincible = False
 		self.invincibility_duration = 1000
 		self.hurt_time = 0
 		self.is_killed = False
-
+		# sounds
 		self.death_sound = pg.mixer.Sound(audio_paths['enemy']['death'])
 		self.hit_sound = pg.mixer.Sound(audio_paths['enemy']['hit'])
 
@@ -54,6 +56,7 @@ class Enemy(pg.sprite.Sprite):
 		return surface_list
 
 	def increase_frame_index(self, dt):
+		# the animation speed differs depending on the current state
 		if self.state == 'attack':
 			self.frame_index += self.attack_animation_speed * dt
 		elif self.state == 'take hit':
@@ -78,15 +81,17 @@ class Enemy(pg.sprite.Sprite):
 		if self.facing_left:
 			self.image = pg.transform.flip(self.image, True, False)
 
-	def reverse(self):
-		if self.colliding:
-			return
-		if self.facing_left:
-			self.direction_x = 1
-			self.facing_left = False
-		else:
-			self.direction_x = -1
-			self.facing_left = True
+	def limit(self, borders):
+		for border in borders:
+			if border.rect.colliderect(self.innerbox):
+				if self.old_rect.right <= border.old_rect.left and self.innerbox.right >= border.rect.left:
+					# collision on the right
+					self.direction_x = -1
+					self.facing_left = True
+				if self.old_rect.left >= border.old_rect.right and self.innerbox.left <= border.rect.right:
+					# collision on the left
+					self.direction_x = 1
+					self.facing_left = False
 
 	def move(self, dt):
 		self.pos.x += self.direction_x * self.speed_x * dt
@@ -125,16 +130,17 @@ class Enemy(pg.sprite.Sprite):
 		self.direction_x = 0
 		self.frame_index = 0
 
-	def update(self, shift, dt):
+	def update(self, shift, borders, dt):
 		self.pos.x += shift[0]
 		self.pos.y += shift[1]
 
 		self.animate(dt)
 		self.image = pg.transform.scale(self.image, self.scale).convert_alpha()
+		self.old_rect = self.innerbox.copy()
 		self.rect = self.image.get_rect(center=self.innerbox.center)
-
 		self.move(dt)
 		self.adjust()
+		self.limit(borders)
 		self.invincibility_timer()
 
 

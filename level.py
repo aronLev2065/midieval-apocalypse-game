@@ -1,4 +1,4 @@
-# import pygame as pg
+import pygame as pg
 from tiles import *
 from config import player_full_size
 from player import Player
@@ -52,7 +52,7 @@ class Level:
 
 		self.setup_tiles()
 
-	# region methods: setup_tiles, create_tile_group, create_single_group, create_particles
+	# region create_... methods: setup_tiles, create_tile_group, create_single_group, create_particles
 	def setup_tiles(self):
 		# player
 		player_layout = import_csv_layout(csv_graphics['player'])
@@ -109,7 +109,10 @@ class Level:
 					if type == 'blocks':
 						tile_surface = tile_list[int(col)]
 						tile_surface.set_colorkey((255, 255, 255))
-						sprite = StaticTile((x, y), tile_size, tile_surface)
+						size = tile_size
+						if int(col) >= 5:
+							size = (90, 70)
+						sprite = StaticTile((x, y), size, tile_surface)
 					if type == 'fire':
 						sprite = Fire((x, y), 80, 80, tile_size, spritesheet_animations['fire'])
 					if type == 'lava':
@@ -182,10 +185,12 @@ class Level:
 		self.true_scroll[0] = (self.WIDTH / 2 - player_x) / 20
 		self.shift = self.true_scroll.copy()
 		self.shift[0] = int(self.shift[0])
+		self.shift[1] = int(self.shift[1])
 
 	def x_movement(self, dt):
 		player = self.player.sprite
 		player.pos.x += player.direction.x * player.speed_x * dt  # player runs
+		player.old_rect = player.collisionbox.copy()
 		player.collisionbox.centerx = player.pos.x
 
 		# create and kill run particles
@@ -204,15 +209,17 @@ class Level:
 		# if the player hits the wall he stops running
 		for tile in collideble:
 			if tile.rect.colliderect(player.collisionbox):
-				if player.direction.x > 0:  # collision on the right to the player
+				# if player.direction.x > 0:  # collision on the right to the player
+				if player.old_rect.right <= tile.old_rect.left and player.collisionbox.right >= tile.rect.left:
 					player.collisionbox.right = tile.rect.left
-				if player.direction.x < 0:  # collision on the left to the player
+				if player.old_rect.left >= tile.old_rect.right and player.collisionbox.left <= tile.rect.right:  # collision on the left to the player
 					player.collisionbox.left = tile.rect.right
 
 		player.adjust_rect()
 
 	def y_movement(self, dt):
 		player = self.player.sprite
+		player.old_rect = player.collisionbox.copy()
 		player.apply_gravity(dt)  # always move the player down
 
 		collideble = self.block_sprites.sprites()
@@ -226,15 +233,19 @@ class Level:
 		for tile in collideble:
 			if tile.rect.colliderect(player.collisionbox):
 				# and player.collisionbox.bottom >= tile.rect.top >= player.collisionbox.top
-				if player.direction.y > 0 and player.collisionbox.bottom >= tile.rect.top >= player.collisionbox.top:  # collision below the player (floor)
+				# if player.direction.y > 0 and player.collisionbox.bottom >= tile.rect.top >= player.collisionbox.top:
+				if player.old_rect.bottom <= tile.old_rect.top and player.collisionbox.bottom >= tile.old_rect.top:
+					# collision below the player (floor)
 					player.collisionbox.bottom = tile.rect.top
-					if player.is_jumping or player.state == 'fall' and not player.on_ground:  # if collided with the floor while jumping => land
+					if player.is_jumping or player.state == 'fall' and not player.on_ground:
+						# if collided with the floor while jumping => land
 						player.land(self.sounds_on)
 						self.create_particles('land', player.rect.midbottom)
 					player.direction.y = 0
 					player.is_jumping = False
 
-				elif player.direction.y < 0 and player.collisionbox.top < tile.rect.bottom:  # collision above the player (ceiling)
+				elif player.old_rect.top >= tile.old_rect.bottom and player.collisionbox.top <= tile.rect.bottom:
+					# collision above the player (ceiling)
 					player.collisionbox.top = tile.rect.bottom
 					player.direction.y = 0
 
@@ -338,16 +349,6 @@ class Level:
 
 	# endregion
 
-	def limit_enemies(self):
-		# if enemy hits a wall, they turn around and move in the opposide direction
-		for enemy in self.enemy_sprites.sprites():
-			colliding = False
-			for border in self.border_sprites.sprites():
-				if enemy.innerbox.colliderect(border.rect):
-					enemy.reverse()
-					colliding = True
-			enemy.colliding = colliding
-
 	def check_gameover(self, health):
 		if self.gameover_time: return True
 
@@ -384,8 +385,6 @@ class Level:
 		self.draw(dt, mouse_down, keys)
 		self.pause_group.draw(self.display_surface)
 		player = self.player.sprite
-
-		self.limit_enemies()
 
 		self.x_movement(dt)
 		self.y_movement(dt)
@@ -446,7 +445,7 @@ class Level:
 			self.player.draw(self.display_surface)
 
 		# enemies
-		self.enemy_sprites.update(self.shift, dt)
+		self.enemy_sprites.update(self.shift, self.border_sprites.sprites(), dt)
 		self.enemy_sprites.draw(self.display_surface)
 		# door fg
 		self.door_fg_sprite.update(self.shift)
