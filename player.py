@@ -48,10 +48,10 @@ class Player(pg.sprite.Sprite):
 		self.is_jumping = False
 		self.action = ''  # attack/crouch/roll/hit
 		self.on_ground = False
-		self.is_won = False
 		self.is_dead = False
 		self.death_time = 0
 		self.burnt = False
+		self.control_allowed = True
 
 		self.invincible = False
 		self.invincibility_duration = 420
@@ -192,6 +192,7 @@ class Player(pg.sprite.Sprite):
 			self.frame_index = 0
 
 	def get_input(self, mouse_down, keys, sounds_on):
+		if not self.control_allowed: return
 		self.direction.x = 0
 		if self.state == 'death':
 			return

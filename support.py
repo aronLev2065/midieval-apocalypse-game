@@ -14,21 +14,23 @@ def import_csv_layout(path):
 
 	return layout
 
-def import_cut_graphics(path):
+
+def import_cut_graphics(path, size):
 	# takes a tileset and cuts it in tiles; returns list of surfaces
 	surface = pg.image.load(path).convert_alpha()
-	tile_num_x = surface.get_width() // tile_size[0]
-	tile_num_y = surface.get_height() // tile_size[1]
+	tile_num_x = surface.get_width() // size[0]
+	tile_num_y = surface.get_height() // size[1]
 	graphics = []
 	for row in range(tile_num_y):
 		for col in range(tile_num_x):
-			x = col * tile_size[0]
-			y = row * tile_size[1]
-			new_surface = pg.Surface(tile_size, flags=pg.SRCALPHA)
-			new_surface.blit(surface, (0, 0), pg.Rect(x, y, *tile_size))
+			x = col * size[0]
+			y = row * size[1]
+			new_surface = pg.Surface(size, flags=pg.SRCALPHA)
+			new_surface.blit(surface, (0, 0), pg.Rect(x, y, *size))
 			graphics.append(new_surface)
 
 	return graphics
+
 
 def import_folder(path):
 	# takes all images from the folder[path] and puts them on pg.surface; returns a list of these surfaces

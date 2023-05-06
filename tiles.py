@@ -79,11 +79,24 @@ class BackgroundTile(StaticTile):
 
 
 class Door(StaticTile):
-	def __init__(self, pos, size, surface):
-		super().__init__(pos, size, surface)
-		self.image = surface
-		self.image.set_colorkey('white')
+	def __init__(self, pos, size, tile_list):
+		super().__init__(pos, size, tile_list[0])
+		self.back_image_closed = tile_list[0]
+		self.back_image_opened = tile_list[1]
+		self.front_image = tile_list[2]
+		self.image = self.back_image_closed
+		self.pseudo_center = (self.rect.centery, self.rect.centery)
 		self.type = 'door'
+		self.is_opened = False
+
+	def update(self, shift):
+		super().update(shift)
+		if self.is_opened:
+			self.image = self.back_image_opened
+		else:
+			self.image = self.back_image_closed
+
+		self.pseudo_center = (self.rect.x + self.rect.width / 4, self.rect.centery)
 
 
 class Lava(AnimatedTile):
@@ -120,8 +133,10 @@ class Coin(AnimatedTile):
 		self.bg_color = 'white'
 		self.collect_sound = pg.mixer.Sound(audio_paths['coin']['collect'])
 		super().__init__(pos, width, height, scale, path, self.bg_color)
+		self.animation_speed = 12
 
 	def animate(self, dt):
+		import math
 		self.frame_index += self.animation_speed * dt
 		if self.frame_index >= len(self.frames):
 			if self.collected:

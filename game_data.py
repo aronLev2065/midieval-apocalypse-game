@@ -1,41 +1,40 @@
 csv_graphics = {
-	'blocks': 'levels/level 1/level_blocks.csv',  #
-	'door bg': 'levels/level 1/level_door bg.csv',  #
-	'door fg': 'levels/level 1/level_door fg.csv',  #
-	'coins': 'levels/level 1/level_coins.csv',  #
-	'enemies': 'levels/level 1/level_enemies.csv',
-	'fire': 'levels/level 1/level_fire.csv',  #
-	'lava': 'levels/level 1/level_lava.csv',  #
-	'player': 'levels/level 1/level_player.csv',
-	'torch': 'levels/level 1/level_torch.csv',  #
-	'borders': 'levels/level 1/level_borders.csv',
-	'background': 'levels/level 1/level_background.csv',
-	'decoration': 'levels/level 1/level_decoration.csv',
-	'node_pos': (150, 400),
-	'unlock': 1
+	'background': 'levels/level 1/csv/level_background.csv',
+	'blocks': 'levels/level 1/csv/level_blocks.csv',
+	'borders': 'levels/level 1/csv/level_borders.csv',
+	'coins': 'levels/level 1/csv/level_coins.csv',
+	'door': 'levels/level 1/csv/level_door.csv',
+	'enemies': 'levels/level 1/csv/level_enemies.csv',
+	'fire': 'levels/level 1/csv/level_fire.csv',
+	'lava': 'levels/level 1/csv/level_lava.csv',
+	'player': 'levels/level 1/csv/level_player.csv',
+	'torch': 'levels/level 1/csv/level_torch.csv',
 }
 
 png_graphics = {
-	'background': 'assets/tile assets/tiles/background 1 tileset.png',
-	'bg torch': 'assets/tile assets/tiles/background torch.png',
-	'blocks': 'assets/tile assets/tiles/brick tileset.png',
-	'coins': 'assets/tile assets/tiles/coin.png',
-	'door': 'assets/tile assets/tiles/door.png',
-	'enemies': 'assets/enemies/enemy sprites/',  # FOLDER
-	'fire': 'assets/tile assets/tiles/fire.png',
-	'lava': 'assets/tile assets/tiles/lava.png',
-	'torch': 'assets/tile assets/tiles/torch.png',
+	'background': 'assets/tiles/background 1 tileset.png',
+	'bg torch': 'assets/tiles/background torch.png',
+	'blocks': 'assets/tiles/brick tileset.png',
+	'brick': 'assets/tiles/brick tile.png',
+	'coins': 'assets/tiles/coin.png',
+	'key': 'assets/tiles/key.png',
+	'door': 'assets/tiles/door.png',
+	'enemies': 'assetsenemy sprites/',  # FOLDER
+	'fire': 'assets/tiles/fire.png',
+	'lava': 'assets/tiles/lava.png',
+	'torch': 'assets/tiles/torch.png',
 	'player': 'assets/character/knight.png',
 	'healthbar': 'assets/ui/health_bar.png'
 }
 
 spritesheet_animations = {
 	# sprite sheets
-	'coins': 'assets/tile assets/tiles/coin animation.png',
-	'collect': 'assets/tile assets/tiles/collect coin.png',
-	'fire': 'assets/tile assets/tiles/fire animation.png',
-	'torch': 'assets/tile assets/tiles/torch animation.png',
-	'lava': 'assets/tile assets/tiles/lava animation.png'
+	'coins': 'assets/tiles/coin animation.png',
+	'collect': 'assets/tiles/collect coin.png',
+	'fire': 'assets/tiles/fire animation.png',
+	'torch': 'assets/tiles/torch animation.png',
+	'lava': 'assets/tiles/lava animation.png',
+	'key': 'assets/tiles/key animation.png'
 }
 
 folder_animations = {

@@ -2,7 +2,7 @@ import pygame as pg
 
 from button import Button, MenuButtonGroup, PauseButtonGroup, GameoverButtonGroup, SettingsButtonGroup
 from config import tile_size
-from game_data import audio_paths
+from game_data import audio_paths, png_graphics
 from level import Level
 from tiles import StaticTile
 from ui import UI, TextLabel
@@ -24,9 +24,9 @@ class Game:
 		self.state = state  # menu/game/pause/gameover/settings
 		self.prev_state = state
 		self.pause_btn = Button('pause', (100, 100))
-		self.level = Level(screen, self.pause_btn)
-		self.coins = 0
 		self.health = 100
+		self.level = Level(screen, self.pause_btn, self.health)
+		self.coins = 0
 		self.ui = UI(screen, self.health, self.midium_font, self.small_font)
 		self.running = True
 		self.open_level_time = 0
@@ -60,7 +60,7 @@ class Game:
 		# create a brick tile spritegroup and fill up the entire screen with them
 		self.background = pg.Surface((self.WIDTH, self.HEIGHT))
 		self.bg_tiles_sprites = pg.sprite.Group()
-		tile_surface = pg.image.load('assets/tile assets/tiles/brick tile.png').convert_alpha()
+		tile_surface = pg.image.load(png_graphics['brick']).convert_alpha()
 
 		y_offset = self.HEIGHT - len(range(0, self.HEIGHT // tile_size[0] + 1)) * tile_size[1]
 		for y in range(self.HEIGHT // tile_size[0] + 1):
@@ -83,6 +83,7 @@ class Game:
 		self.display_surface.blit(self.title.image, self.title.rect)
 		self.display_surface.blit(self.author_label.image, self.author_label.rect)
 
+	# region game stages methods
 	def play(self, dt, keys, mouse_down, mouse_pos):
 		# main game mode
 		mouse_down = mouse_down and pg.time.get_ticks() - self.open_level_time > 50  # mouse down only 0.05s after opening the level
@@ -208,6 +209,9 @@ class Game:
 		if self.gameover_buttons.quit_btn.pressed:
 			self.quit()
 
+	# endregion
+
+	# region button methods
 	def goto_settings(self):
 		if self.sounds_on:
 			self.button_click.play()
@@ -228,9 +232,9 @@ class Game:
 		self.score_label.update_text('Coins: ')  # reset the score label
 		self.prev_state = self.state
 		self.state = 'game'
-		self.level = Level(self.display_surface, self.pause_btn)  # recreate level
-		self.coins = 0  # reset coins and health
 		self.health = 100
+		self.level = Level(self.display_surface, self.pause_btn, self.health)  # recreate level
+		self.coins = 0  # reset coins and health
 
 		if self.sounds_on:
 			self.level.torch_sound.play(-1)
@@ -252,6 +256,8 @@ class Game:
 
 	def quit(self):
 		self.running = False
+
+	# endregion
 
 	def run(self, dt, keys, mouse_down, mouse_pos):
 		if self.state == 'menu':

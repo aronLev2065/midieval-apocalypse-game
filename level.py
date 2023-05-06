@@ -8,8 +8,9 @@ from game_data import *
 from enemy import *
 from random import randint
 
+
 class Level:
-	def __init__(self, surface, pause_btn):
+	def __init__(self, surface, pause_btn, health):
 		# general setup
 		self.display_surface = surface
 		self.WIDTH = surface.get_width()
@@ -19,6 +20,8 @@ class Level:
 		self.shift = [0, 0]
 
 		self.coins = 0
+		self.coins_required = 0
+		self.current_health = health
 		self.gained_health = 0
 		self.weapon_strength = 15
 
@@ -52,7 +55,7 @@ class Level:
 
 		self.setup_tiles()
 
-	# region create_... methods: setup_tiles, create_tile_group, create_single_group, create_particles
+	# region create methods: setup_tiles, create_tile_group, create_single_group, create_particles
 	def setup_tiles(self):
 		# player
 		player_layout = import_csv_layout(csv_graphics['player'])
@@ -60,31 +63,26 @@ class Level:
 		# blocks layout
 		block_layout = import_csv_layout(csv_graphics['blocks'])
 		self.block_sprites = self.create_tile_group(block_layout, 'blocks')
-		# # door bg
-		door_bg_layout = import_csv_layout(csv_graphics['door bg'])
-		self.door_bg_sprite = self.create_single_group(door_bg_layout, 'door')
-		# # door fg
-		door_fg_layout = import_csv_layout(csv_graphics['door fg'])
-		self.door_fg_sprite = self.create_single_group(door_fg_layout, 'door')
-		# # fire
-		fire_layout = import_csv_layout(csv_graphics['fire'])
-		self.fire_sprites = self.create_tile_group(fire_layout, 'fire')
-		# # lava
+		# door background
+		door_layout = import_csv_layout(csv_graphics['door'])
+		self.door_sprite = self.create_single_group(door_layout, 'door')
+		# lava
 		lava_layout = import_csv_layout(csv_graphics['lava'])
 		self.lava_sprites = self.create_tile_group(lava_layout, 'lava')
-		# # coins
+		# coins
 		coin_layout = import_csv_layout(csv_graphics['coins'])
 		self.coin_sprites = self.create_tile_group(coin_layout, 'coins')
-		# # torches
+		self.coins_required = len(self.coin_sprites)
+		# torches
 		torch_layout = import_csv_layout(csv_graphics['torch'])
 		self.torch_sprites = self.create_tile_group(torch_layout, 'torch')
-		# # borders
+		# borders
 		borders_layout = import_csv_layout(csv_graphics['borders'])
 		self.border_sprites = self.create_tile_group(borders_layout, 'borders')
-		# # enemies
+		# enemies
 		enemy_layout = import_csv_layout(csv_graphics['enemies'])
 		self.enemy_sprites = self.create_tile_group(enemy_layout, 'enemies')
-		# # background
+		# background
 		bg_layout = import_csv_layout(csv_graphics['background'])
 		self.bg_sprites = self.create_tile_group(bg_layout, 'background')
 
@@ -99,7 +97,7 @@ class Level:
 		tile_list = []
 		if type == 'blocks' or type == 'background':
 			# create a list of tiles outside of the loop to use it inside of it
-			tile_list = import_cut_graphics(png_graphics[type])
+			tile_list = import_cut_graphics(png_graphics[type], tile_size)
 
 		for r, row in enumerate(layout):
 			for c, col in enumerate(row):
@@ -124,14 +122,14 @@ class Level:
 					if type == 'borders':
 						sprite = Border((x, y), tile_size)
 					if type == 'enemies':
-						if col == '1':  # eye
-							sprite = Eye((x, y))
-						if col == '2':  # goblin
-							sprite = Goblin((x, y))
-						if col == '3':  # mushroom
+						if col == '0':  # mushroom
 							sprite = Mushroom((x, y))
-						if col == '4':  # skeleton
+						if col == '1':  # skeleton
 							sprite = Skeleton((x, y))
+						if col == '2':  # eye
+							sprite = Eye((x, y))
+						if col == '3':  # goblin
+							sprite = Goblin((x, y))
 					if type == 'background':
 						tile_surface = tile_list[int(col)]
 						sprite = BackgroundTile((x, y), tile_size, tile_surface)
@@ -148,9 +146,8 @@ class Level:
 					x = c * tile_size[0] + self.shift[0]
 					y = r * tile_size[1] + y_offset
 					if type == 'door':
-						door_tile_list = import_cut_graphics(png_graphics['door'])
-						door_surface = door_tile_list[int(col)]
-						sprite = Door((x, y), tile_size, door_surface)
+						door_tile_list = import_cut_graphics(png_graphics['door'], (256, 120))
+						sprite = Door((x, y - 30), (256, 120), door_tile_list)
 					if type == 'player':
 						sprite = Player((x, y), player_full_size, self.create_particles)
 					sprite_group.add(sprite)
@@ -175,7 +172,7 @@ class Level:
 
 	# endregion
 
-	# region movement logic
+	# region player movement logic
 	def scroll_x(self):
 		# scroll the entire level so that it follows the player and always stays in view (SMOOTH!!!)
 		player = self.player.sprite
@@ -204,17 +201,22 @@ class Level:
 					dust.kill()  # otherwise kill it
 		if not running_particle and player.state == 'run':  # if there are no running particles but the player is running
 			self.create_particles('run', player.rect.midbottom)  # create them
-		collideble = self.block_sprites.sprites()
+
+		collideble = [*self.block_sprites.sprites(), self.door_sprite.sprite]
 
 		# if the player hits the wall he stops running
 		for tile in collideble:
 			if tile.rect.colliderect(player.collisionbox):
-				# if player.direction.x > 0:  # collision on the right to the player
 				if player.old_rect.right <= tile.old_rect.left and player.collisionbox.right >= tile.rect.left:
-					player.collisionbox.right = tile.rect.left
-				if player.old_rect.left >= tile.old_rect.right and player.collisionbox.left <= tile.rect.right:  # collision on the left to the player
+					# collision on the right to the player
+					try:
+						if tile.type == 'door' and tile.is_opened:
+							self.check_win()
+					except:
+						player.collisionbox.right = tile.rect.left
+				if player.old_rect.left >= tile.old_rect.right and player.collisionbox.left <= tile.rect.right:
+					# collision on the left to the player
 					player.collisionbox.left = tile.rect.right
-
 		player.adjust_rect()
 
 	def y_movement(self, dt):
@@ -222,9 +224,9 @@ class Level:
 		player.old_rect = player.collisionbox.copy()
 		player.apply_gravity(dt)  # always move the player down
 
-		collideble = self.block_sprites.sprites()
+		collideble = [*self.block_sprites.sprites(), self.door_sprite.sprite]
 
-		dead_eyes = []  # if eyemonster dies, it has to fall
+		dead_eyes = []  # if eyemonster dies, it has to fall down
 		for eye in self.enemy_sprites.sprites():
 			if eye.name == 'eye' and eye.state == 'death' and not eye.fallen:
 				dead_eyes.append(eye)
@@ -232,8 +234,6 @@ class Level:
 
 		for tile in collideble:
 			if tile.rect.colliderect(player.collisionbox):
-				# and player.collisionbox.bottom >= tile.rect.top >= player.collisionbox.top
-				# if player.direction.y > 0 and player.collisionbox.bottom >= tile.rect.top >= player.collisionbox.top:
 				if player.old_rect.bottom <= tile.old_rect.top and player.collisionbox.bottom >= tile.old_rect.top:
 					# collision below the player (floor)
 					player.collisionbox.bottom = tile.rect.top
@@ -268,11 +268,10 @@ class Level:
 	# region collision detection
 	def check_fire_collision(self):
 		player = self.player.sprite
-		fire_tiles = self.fire_sprites.sprites()
 		lava_tiles = self.lava_sprites.sprites()
 
 		# if player hits fire, he dies
-		for fire in [*fire_tiles, *lava_tiles]:
+		for fire in lava_tiles:
 			if fire.rect.colliderect(player.collisionbox) and (player.collisionbox.y <= (fire.rect.bottom)):
 				self.gained_health = 0
 				if not player.burnt:
@@ -349,11 +348,12 @@ class Level:
 
 	# endregion
 
-	def check_gameover(self, health):
+	# region gameover check
+	def check_gameover(self):
 		if self.gameover_time: return True
 
 		player = self.player.sprite
-		if health <= 0 and player.action != 'death':
+		if self.current_health <= 0 and player.action != 'death':
 			player.die(self.sounds_on)
 			for i in range(5):
 				self.visual_effects.append(
@@ -365,22 +365,26 @@ class Level:
 			self.completed = False
 			return True  # you lost
 
-		if health > 0:
-			door = self.door_fg_sprite.sprite
-			if door.rect.colliderect(player.collisionbox):
-				# if collided with the door
-				if not player.is_won:
-					player.is_won = True
-					self.gameover_time = pg.time.get_ticks()  # you won
-					self.completed = True
-					return True
-
 		self.gameover_time = 0
 		self.completed = False
 		return False
 
+	def check_win(self):
+		# only called when the player enters the door
+		if self.gameover_time or self.player.sprite.is_jumping:
+			return False
+
+		if self.current_health > 0:
+			self.gameover_time = pg.time.get_ticks()  # you won
+			self.completed = True
+			self.player.sprite.control_allowed = False
+			return True
+
+	# endregion
+
 	def run(self, dt, health, keys, mouse_down, mouse_pos, sounds_on):
 		self.sounds_on = sounds_on
+		self.current_health = health
 
 		self.draw(dt, mouse_down, keys)
 		self.pause_group.draw(self.display_surface)
@@ -392,21 +396,30 @@ class Level:
 
 		self.check_collisions()
 
+		door = self.door_sprite.sprite
+		if self.coins >= self.coins_required and not door.is_opened:
+			door.is_opened = True
+			self.visual_effects.append(Shockwave(door.pseudo_center, 70, 7, 2, 'white', self.display_surface))
+
 		for i, effect in sorted(enumerate(self.visual_effects), reverse=True):
 			effect.update(self.shift)
 			if not effect.alive:
 				self.visual_effects.pop(i)
 
-		if self.check_gameover(health):
-			now = pg.time.get_ticks()
+		if self.check_gameover():
 			self.failed = not self.completed
-			if now - self.gameover_time > 700:
+			door = self.door_sprite.sprite
+			if player.collisionbox.right + 50 >= door.rect.right:
+				# block the player after disappearing behind the door
+				player.collisionbox.right = door.rect.right - 50
+			now = pg.time.get_ticks()
+			if now - self.gameover_time > 1000:
 				self.gameover = True
 		else:
+			# pause is possible only before the game is over
 			self.pause_group.update(mouse_down, mouse_pos, sounds_on)
 			if ((mouse_down and self.pause_btn.hovered) or keys[pg.K_ESCAPE]) and not \
 					(self.player.sprite.is_dead or self.player.sprite.burnt or self.player.sprite.action == 'death'):
-				# pause is possible only during the game and when player hasn't won or failed yet
 				self.paused = True
 				if sounds_on:
 					self.button_click.play()
@@ -419,21 +432,20 @@ class Level:
 		# dust particles
 		self.dust_sprite.update(self.shift, self.player.sprite.rect.midbottom, self.player.sprite.facing_left, dt)
 		self.dust_sprite.draw(self.display_surface)
-		# fire
-		self.fire_sprites.update(self.shift, dt)
-		self.fire_sprites.draw(self.display_surface)
-		# door bg
-		self.door_bg_sprite.update(self.shift)
-		self.door_bg_sprite.draw(self.display_surface)
 		# torch
 		self.torch_sprites.update(self.shift, dt)
 		self.torch_sprites.draw(self.display_surface)
+		# door
+		self.door_sprite.update(self.shift)
+		self.door_sprite.draw(self.display_surface)
 		# coins
 		self.coin_sprites.update(self.shift, dt)
 		self.coin_sprites.draw(self.display_surface)
 		# player
 		self.player.update(dt, self.shift, mouse_down, keys, self.sounds_on)
 		self.player.draw(self.display_surface)
+		if self.completed:
+			self.display_surface.blit(self.door_sprite.sprite.front_image, self.door_sprite.sprite.rect.topleft)
 		# lava
 		self.lava_sprites.update(self.shift, dt)
 		self.lava_sprites.draw(self.display_surface)
@@ -447,9 +459,6 @@ class Level:
 		# enemies
 		self.enemy_sprites.update(self.shift, self.border_sprites.sprites(), dt)
 		self.enemy_sprites.draw(self.display_surface)
-		# door fg
-		self.door_fg_sprite.update(self.shift)
-		self.door_fg_sprite.draw(self.display_surface)
 		# borders
 		self.border_sprites.update(self.shift)
 		self.border_sprites.draw(self.display_surface)

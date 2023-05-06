@@ -6,15 +6,99 @@
   <component name="ChangeListManager">
     <list default="true" id="94421ddc-f703-4467-a804-094dee6db251" name="Changes" comment="version 1.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/enemy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/Lava lamp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/LavaDungeonTileset 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/LavaDungeonTileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/background 1 tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/background tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/basic-platformer-tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/brick tile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/brick tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/coin animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/coin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/collect coin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/door.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/fire animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/fire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/lava animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch 1 (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/torch animation 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/torch animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/walls tileset 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/chest_tiles.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/city tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/coin_tile.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/grass_tiles.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/palms.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/player_tiles.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/terrain_tiles.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/game_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/level.py" beforeDir="false" afterPath="$PROJECT_DIR$/level.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/background tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/background torch.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/borders tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/coin tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/door tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/doot tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/dungeon tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/enemy tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/example/level1.tmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/fire tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/lava tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._chests.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._coins.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._enemies.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._grass.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._palms fg.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._plams bg.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._player.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._terrain.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_background.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_blocks.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_borders.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_coins.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_decoration.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_door bg.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_door fg.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_enemies.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_fire.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_lava.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_player.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level_torch.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level.tmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/midieval tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/player tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/player tilset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/torch tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/wall_tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/walls tileset.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/support.py" beforeDir="false" afterPath="$PROJECT_DIR$/support.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/tiles.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Setup Script" />
+      </list>
+    </option>
   </component>
   <component name="FormatOnSaveOptions">
     <option name="myRunOnSave" value="true" />
@@ -49,7 +133,9 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Documents/programming/python/GAMES/medieval apocalypse&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
