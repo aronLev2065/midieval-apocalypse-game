@@ -4,127 +4,348 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94421ddc-f703-4467-a804-094dee6db251" name="Changes" comment="version 1.1">
+    <list default="true" id="9cd9d0ff-5094-4ab3-838b-943f8eb0ba12" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/user.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/midieval apocalypse.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/Lava lamp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/LavaDungeonTileset 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/LavaDungeonTileset.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/background 1 tileset.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/background tileset.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/basic-platformer-tileset.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/brick tile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/brick tileset.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/coin animation.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/coin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/collect coin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/door.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/fire animation.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/fire.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/lava animation.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch 1 (2).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animation.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/Torch_64_Flamas_6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/torch animation 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch animations/torch animation.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/torch.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tile assets/tiles/walls tileset 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiles/chest_tiles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiles/city tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiles/coin_tile.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiles/grass_tiles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiles/palms.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiles/player_tiles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tiles/terrain_tiles.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/game_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/level.py" beforeDir="false" afterPath="$PROJECT_DIR$/level.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/background tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/background torch.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/borders tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/coin tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/door tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/doot tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/dungeon tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/enemy tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/example/level1.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/fire tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/lava tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._chests.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._coins.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._enemies.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._grass.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._palms fg.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._plams bg.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._player.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 0/level1._terrain.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_background.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_blocks.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_borders.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_coins.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_decoration.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_door bg.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_door fg.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_enemies.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_fire.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_lava.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_player.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level 1/level_torch.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/level.tmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/midieval tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/player tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/player tilset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/torch tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/wall_tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/walls tileset.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/support.py" beforeDir="false" afterPath="$PROJECT_DIR$/support.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/tiles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/button click.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/coin.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/enemy bite.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/enemy death.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/game over.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/hit.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/level bg.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/level complete.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/mouseclick.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/player attack 1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/player attack 2.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/player attack.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/player burn.flac" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/player death.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/player land.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/skeleton attack.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/audio/torch burning.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_Attack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_Attack2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_Attack2NoMovement.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_AttackCombo2hit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_AttackComboNoMovement.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_AttackNoMovement.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_Crouch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_CrouchAttack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_CrouchFull.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_CrouchTransition.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_CrouchWalk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_Dash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_Death.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_DeathNoMovement.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_Fall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_Hit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_Idle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_Jump.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_JumpFallInbetween.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_Roll.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_Run.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_Slide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_SlideFull.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_SlideTransitionEnd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_SlideTransitionStart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_TurnAround.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_WallClimb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_WallClimbNoMovement.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_WallHang.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/FreeKnight_v1/120x80_PNGSheets/_WallSlide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/attack nope.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/attack yep.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/attack yo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/attack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/crouch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/dash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/death.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/fall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/hit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/idle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/jump.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/jump_to_fall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/knight full.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/knight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/roll.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/run.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/character/turn_around.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/jump/jump_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/jump/jump_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/jump/jump_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/jump/jump_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/jump/jump_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/jump/jump_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/land/land_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/land/land_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/land/land_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/land/land_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/land/land_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/run/run_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/run/run_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/run/run_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/run/run_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/dust particles/run/run_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/All Characters.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/attack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/attack/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/attack/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/attack/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/attack/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/attack/tile004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/attack/tile005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/attack/tile006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/attack/tile007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/death.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/death/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/death/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/death/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/death/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/flight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/flight/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/flight/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/flight/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/flight/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/flight/tile004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/flight/tile005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/flight/tile006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/flight/tile007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/flying eye.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/take hit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/take hit/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/take hit/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/take hit/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Flying eye/take hit/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/attack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/attack/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/attack/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/attack/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/attack/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/attack/tile004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/attack/tile005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/attack/tile006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/attack/tile007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/death.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/death/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/death/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/death/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/death/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/goblin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/idle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/idle/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/idle/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/idle/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/idle/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/run.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/run/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/run/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/run/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/run/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/run/tile004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/run/tile005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/run/tile006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/run/tile007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/take hit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/take hit/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/take hit/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/take hit/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Goblin/take hit/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/attack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/attack/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/attack/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/attack/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/attack/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/attack/tile004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/attack/tile005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/attack/tile006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/attack/tile007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/death.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/death/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/death/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/death/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/death/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/idle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/idle/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/idle/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/idle/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/idle/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/mushroom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/run.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/run/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/run/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/run/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/run/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/run/tile004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/run/tile005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/run/tile006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/run/tile007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/take hit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/take hit/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/take hit/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/take hit/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Mushroom/take hit/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/Attack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/Death.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/Idle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/Shield.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/Take Hit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/Walk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/attack/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/attack/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/attack/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/attack/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/attack/tile004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/attack/tile005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/attack/tile006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/attack/tile007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/death/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/death/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/death/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/death/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/idle/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/idle/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/idle/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/idle/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/shield/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/shield/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/shield/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/shield/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/skeleton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/take hit/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/take hit/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/take hit/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/take hit/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/walk/tile000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/walk/tile001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/walk/tile002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/Skeleton/walk/tile003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/enemy sprites/borders.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/enemy sprites/flying eye.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/enemy sprites/goblin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/enemy sprites/mushroom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/enemy sprites/skeleton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/lpc-monsters/bat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/lpc-monsters/bee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/lpc-monsters/big_worm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/lpc-monsters/eyeball.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/lpc-monsters/ghost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/lpc-monsters/man_eater_flower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/lpc-monsters/pumpking.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/lpc-monsters/slime-projectile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/lpc-monsters/slime.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/lpc-monsters/small_worm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/enemies/lpc-monsters/snake.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/Lava lamp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/LavaDungeonTileset 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/LavaDungeonTileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/background 1 tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/background tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/basic-platformer-tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/brick tile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/brick tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/coin animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/coin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/collect coin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/door.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/fire animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/fire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/key animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/lava animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/torch 1 (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/torch animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/torch animations/Torch_64_Flamas_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/torch animations/Torch_64_Flamas_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/torch animations/Torch_64_Flamas_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/torch animations/Torch_64_Flamas_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/torch animations/Torch_64_Flamas_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/torch animations/Torch_64_Flamas_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/torch animations/Torch_64_Flamas_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/torch animations/torch animation 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/torch animations/torch animation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/torch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/walls tileset 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/ARCADEPI.TTF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/button_hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/back button hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/back button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/music button hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/music button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/mute music button hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/mute music button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/mute sound button hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/mute sound button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/pause button hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/pause button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/quit button hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/quit button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/restart button hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/restart button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/settings button hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/settings button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/sound button hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/sound button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/start button 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/start button hovered 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/start button hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/buttons/start button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/health_bar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/button.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enemy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game discription.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/level.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/csv/level_background.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/csv/level_blocks.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/csv/level_borders.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/csv/level_coins.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/csv/level_door.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/csv/level_enemies.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/csv/level_lava.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/csv/level_player.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/csv/level_torch.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/level.tmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/tsx/background tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/tsx/borders tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/tsx/coin tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/tsx/door tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/tsx/enemy tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/tsx/lava tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/tsx/player tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/tsx/torch tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/level 1/tsx/walls tileset.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/overworld.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprite_sheet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/support.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tiles.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vfx.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Setup Script" />
-      </list>
-    </option>
-  </component>
-  <component name="FormatOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/button.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/config.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/enemy.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/game.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/game_data.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/level.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/main.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/player.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/support.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/test.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/tiles.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/ui.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/vfx.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/../pygame trainer/main.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/../../py_lesson/main.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/../../voice assistant/main.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/data/code/game.py" root0="SKIP_INSPECTION" />
   </component>
-  <component name="ProjectId" id="2NV4LLw0SZLgyEVyUraDTKW0Hb2" />
+  <component name="ProjectId" id="2PTOusbs7oMm8TOWqDFsjf9aGDe" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -132,184 +353,18 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Documents/programming/python/GAMES/medieval apocalypse&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.main mid apocalypse">
-    <configuration name="button" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="midieval apocalypse" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/button.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="level" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="midieval apocalypse" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/level.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main mid apocalypse" type="PythonConfigurationType" factoryName="Python">
-      <module name="midieval apocalypse" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\user\Documents\programming\python\midieval apocalypse\Scripts\python.exe" />
-      <option name="SDK_NAME" value="Python 3.10 (midieval apocalypse)" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" singleton="false" nameIsGenerated="true">
-      <module name="midieval apocalypse" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\user\Documents\programming\python\midieval apocalypse\Scripts\python.exe" />
-      <option name="SDK_NAME" value="Python 3.10 (midieval apocalypse)" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../py_lesson" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../py_lesson/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="player" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="midieval apocalypse" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/player.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Python.main mid apocalypse" />
-      <item itemvalue="Python.main" />
-      <item itemvalue="Python.level" />
-      <item itemvalue="Python.player" />
-      <item itemvalue="Python.button" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.level" />
-        <item itemvalue="Python.player" />
-        <item itemvalue="Python.button" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="94421ddc-f703-4467-a804-094dee6db251" name="Changes" comment="" />
-      <created>1679735858388</created>
+      <changelist id="9cd9d0ff-5094-4ab3-838b-943f8eb0ba12" name="Changes" comment="" />
+      <created>1683477832457</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1679735858388</updated>
+      <updated>1683477832457</updated>
     </task>
-    <task id="LOCAL-00001" summary="first commit">
-      <created>1681024506129</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1681024506129</updated>
-    </task>
-    <task id="LOCAL-00002" summary="first commit">
-      <created>1681024569049</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1681024569049</updated>
-    </task>
-    <task id="LOCAL-00003" summary="version 1.1">
-      <created>1682610830172</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1682610830172</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="first commit" />
-    <MESSAGE value="version 1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 1.1" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
