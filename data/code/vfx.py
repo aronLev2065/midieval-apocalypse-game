@@ -62,11 +62,11 @@ class Shockwave:
 		self.radius_int = int(self.radius)
 		self.alive = True
 
-	def update(self, shift):
+	def update(self, shift, dt):
 		pg.draw.circle(self.display, self.color, self.pos, self.radius_int, self.thickness_int)
 
 		self.thickness -= self.delta_thickness
-		self.radius += self.delta_radius
+		self.radius += self.delta_radius * 60 * dt
 		self.thickness_int = int(self.thickness)
 		self.radius_int = int(self.radius)
 		self.pos.x += shift[0]
@@ -87,7 +87,7 @@ class Splash:
 		self.gravity = gravity
 		self.alive = True
 
-	def update(self, shift):
+	def update(self, shift, dt):
 		if self.pos.x < self.WIDTH and self.pos.x + 2 * self.radius > 0 and \
 				self.pos.y < self.HEIGHT and self.pos.y + 2 * self.radius > 0:
 			pg.draw.circle(self.display_surface, self.color, [int(self.pos.x), int(self.pos.y)], self.radius)
