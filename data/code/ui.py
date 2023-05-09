@@ -1,8 +1,6 @@
 import pygame as pg
-from game_data import spritesheet_animations, png_graphics
-from sprite_sheet import SpriteSheet
+from game_data import png_graphics
 from pygame.math import Vector2
-from math import sin
 
 
 class TextLabel(pg.sprite.Sprite):
@@ -32,17 +30,19 @@ class Indicator:
 			color = '#42ce29'  # greenish
 		elif type == 'down':
 			color = '#ad150a'  # redish
+		self.text = text
 		self.text_surface = font.render(text, True, color)
 		self.alpha = 255
 		self.pos = Vector2(pos)
+		self.starting_y = self.pos.y
 		self.alive = True
 
 	def animate_indicator(self, dt):
 		if self.alive:
 			self.text_surface.set_alpha(self.alpha)
-			self.alpha -= 5
+			self.alpha -= 300 * dt
 			self.pos.y -= 180 * dt
-			if self.alpha < 50:
+			if self.alpha < 50 or self.starting_y - self.pos.y >= 125:
 				self.alive = False
 
 
@@ -93,11 +93,11 @@ class UI:
 		self.display_surface.blit(coin_counter, (150, 30))
 
 	def draw(self, coins, health, dt):
-		for indicator in self.indicators:
+		for i, indicator in sorted(enumerate(self.indicators), reverse=True):
 			self.display_surface.blit(indicator.text_surface, indicator.pos)
 			indicator.animate_indicator(dt)
 			if not indicator.alive:
-				self.indicators.remove(indicator)
+				self.indicators.pop(i)
 
 		self.display_coins(coins)
 		self.display_health(health)
