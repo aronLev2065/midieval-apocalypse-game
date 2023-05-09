@@ -87,6 +87,11 @@ class Level:
 		self.bg_sprites = self.create_tile_group(bg_layout, 'background')
 
 		self.shift[0] = 0
+		self.far_right_block = self.block_sprites.sprites()[0]
+		for block in self.block_sprites.sprites():
+			if block.rect.right > self.far_right_block.rect.right:
+				self.far_right_block = block
+
 		self.downloaded = True
 
 	def create_tile_group(self, layout, type):
@@ -177,11 +182,17 @@ class Level:
 		player = self.player.sprite
 		player_x = player.collisionbox.centerx
 		player_width = player.collisionbox.width
+		left_side_x = self.bg_sprites.sprites()[0].rect.x
+		right_side_x = self.far_right_block.rect.right
 
 		self.true_scroll[0] = (self.WIDTH / 2 - player_x) / 20
+		if left_side_x + int(self.true_scroll[0]) > 0 or right_side_x + int(self.true_scroll[0]) < self.WIDTH:
+			self.true_scroll[0] = 0
+
 		self.shift = self.true_scroll.copy()
 		self.shift[0] = int(self.shift[0])
 		self.shift[1] = int(self.shift[1])
+
 
 	def x_movement(self, dt):
 		player = self.player.sprite
@@ -208,10 +219,9 @@ class Level:
 			if tile.rect.colliderect(player.collisionbox):
 				if player.old_rect.right <= tile.old_rect.left and player.collisionbox.right >= tile.rect.left:
 					# collision on the right to the player
-					if tile is self.door_sprite.sprite:
-						# player doesn't collide with the door
-						continue
-					player.collisionbox.right = tile.rect.left
+					if tile is not self.door_sprite.sprite:
+						# player doesn't collide with the door on this side
+						player.collisionbox.right = tile.rect.left
 				if player.old_rect.left >= tile.old_rect.right and player.collisionbox.left <= tile.rect.right:
 					# collision on the left to the player
 					player.collisionbox.left = tile.rect.right
@@ -413,7 +423,7 @@ class Level:
 			self.visual_effects.append(Shockwave(door.entrance_center, 70, 7, 2, 'white', self.display_surface))
 
 		for i, effect in sorted(enumerate(self.visual_effects), reverse=True):
-			effect.update(self.shift)
+			effect.update(self.shift, dt)
 			if not effect.alive:
 				self.visual_effects.pop(i)
 
