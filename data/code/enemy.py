@@ -88,10 +88,12 @@ class Enemy(pg.sprite.Sprite):
 					# collision on the right
 					self.direction_x = -1
 					self.facing_left = True
+					self.innerbox.right = border.rect.left
 				if self.old_rect.left >= border.old_rect.right and self.innerbox.left <= border.rect.right:
 					# collision on the left
 					self.direction_x = 1
 					self.facing_left = False
+					self.innerbox.left = border.rect.right
 
 	def move(self, dt):
 		self.pos.x += self.direction_x * self.speed_x * dt
